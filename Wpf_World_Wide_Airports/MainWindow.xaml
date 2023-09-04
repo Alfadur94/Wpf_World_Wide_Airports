@@ -1,0 +1,58 @@
+﻿<Window x:Class="Wpf_World_Wide_Airports.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:wv2="clr-namespace:Microsoft.Web.WebView2.Wpf;assembly=Microsoft.Web.WebView2.Wpf"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wpf_World_Wide_Airports"
+        mc:Ignorable="d"
+        Title="World Wide Airports" Height="600" Width="950" Loaded="Window_Loaded">
+    <Grid>
+        <!--Acht Spalten und fünf Zeilen-->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>    
+        <!--Erste Zeile mit Menü-->
+        <Menu Grid.Column="0" Grid.ColumnSpan="8" Grid.Row="0">
+            <MenuItem Header="_Load CSV" Click="MenuItem_Click">                
+            </MenuItem>
+            <MenuItem Header="_Edit">
+                <MenuItem Header="_Copy"/>
+                <MenuItem Header="_Paste"/>
+            </MenuItem>
+            <MenuItem Header="_Help">
+                <MenuItem Header="_About"/>
+            </MenuItem>
+        </Menu>
+        <!--Zweite Zeile mit Dropdown und Label-->
+        <ComboBox x:Name="cbContinent" IsEnabled="True" Grid.Column="0" Grid.Row="1" Margin="5" Height="30" Width="110" SelectionChanged="cbContinent_SelectionChanged"/>
+        <Label x:Name="lblContinent" Grid.Column="1" Grid.Row="1" Content="Kontinent" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
+        <ComboBox x:Name="cbCountry" IsEnabled="False" Grid.Column="2" Grid.Row="1" Margin="5" Height="30" Width="110"/>
+        <Label x:Name="lblCountry" Grid.Column="3" Grid.Row="1" Content="Land" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
+        <ComboBox x:Name="cbType" IsEnabled="False" Grid.Column="4" Grid.Row="1" Margin="5" Height="30" Width="110"/>
+        <Label x:Name="lblType" Grid.Column="5" Grid.Row="1" Content="Typ" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
+        <ComboBox x:Name="cbAirport" IsEnabled="False" Grid.Column="6" Grid.Row="1" Margin="5" Height="30" Width="110"/>
+        <Label x:Name="lblAirport" Grid.Column="7" Grid.Row="1" Content="Flughafen" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
+        <!--Dritte Zeile mit Checkbox-->
+        <CheckBox x:Name="cbxInternational" Grid.Column="0" Grid.Row="2" Margin="5" Content="International"/>
+        <!--Vierte Zeile mit WebView2 und StackPanel-->
+        <wv2:WebView2 x:Name="wv2Airport" Margin="5" Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="3" Source="https://ourairports.com/"/>
+        <StackPanel x:Name="spAirprt" Margin="5" Grid.Column="5" Grid.ColumnSpan="8" Grid.Row="3"/>
+        <!--Fünfte Zeile mit Footer-->
+        <Label x:Name="lblFooter" Grid.Column="0" Grid.ColumnSpan="8" Grid.Row="4" Content="Footer"/>
+    </Grid>
+</Window>
