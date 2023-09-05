@@ -41,11 +41,24 @@
         <ComboBox x:Name="cbAirport" IsEnabled="False" Grid.Column="6" Grid.Row="1" Margin="5" Height="30" Width="110" SelectionChanged="cbAirport_SelectionChanged"/>
         <Label x:Name="lblAirport" Grid.Column="7" Grid.Row="1" Content="Flughafen" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
         <!--Dritte Zeile mit Checkbox-->
-        <CheckBox x:Name="cbxInternational" Grid.Column="0" Grid.Row="2" Margin="5" Content="International"/>
+        <CheckBox x:Name="cbxDefault" Grid.Column="0" Grid.Row="2" Margin="5" Content="Zurücksetzen" Checked="cbxDefault_Checked" />
         <!--Vierte Zeile mit WebView2 und StackPanel-->
         <wv2:WebView2 x:Name="wv2Airport" Margin="5" Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="3" Source="https://ourairports.com/"/>
-        <StackPanel x:Name="spAirprt" Margin="5" Grid.Column="5" Grid.ColumnSpan="8" Grid.Row="3"/>
+        <StackPanel x:Name="spAirprt" Margin="5" Grid.Column="5" Grid.ColumnSpan="8" Grid.Row="3">
+            <Label Content="Name" FontWeight="Bold" />
+            <Label x:Name="lblName"/>
+            <Label Content="Gemeinde" FontWeight="Bold" />
+            <Label x:Name="lblGemeinde"/>
+            <Label Content="Typ" FontWeight="Bold" />
+            <Label x:Name="lblTyp"/>
+            <Label Content="Breitengrad" FontWeight="Bold" />
+            <Label x:Name="lblBreitengrad"/>
+            <Label Content="Längengrad" FontWeight="Bold" />
+            <Label x:Name="lblLängengrad"/>
+            <Label Content="Höhe über Null" FontWeight="Bold" />
+            <Label x:Name="lblHöheÜberNull"/>
+        </StackPanel>
         <!--Fünfte Zeile mit Footer-->
-        <Label x:Name="lblFooter" Grid.Column="0" Grid.ColumnSpan="8" Grid.Row="4" Content="Footer"/>
+        <Label x:Name="lblFooter" Grid.Column="0" Grid.ColumnSpan="8" Grid.Row="4" Content="Footer" Loaded="lblFooter_Loaded"/>
     </Grid>
 </Window>
